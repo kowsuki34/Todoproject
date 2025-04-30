@@ -11,7 +11,7 @@ export default function Todo() {
 
   
   const addData = () => {
-      axios.post('http://localhost:4001/Users/post', 
+      axios.post('https://todoprojectback.onrender.com/Users/post', 
         {title,description}
       )
       .then((res) => {
@@ -21,14 +21,14 @@ export default function Todo() {
   }
 
   useEffect(()=>{
-axios.get('http://localhost:4001/Users/get')
+axios.get('https://todoprojectback.onrender.com/Users/get')
 .then((res)=>{
   setData(res.data)
 })
   },[])
 
 const deldata = (id) => {
-  axios.delete(`http://localhost:4001/Users/delete/${id}`)
+  axios.delete(`https://todoprojectback.onrender.com/Users/delete/${id}`)
   .then((res) => {
     setData(data.filter((i) => i._id !== id ))
   })
@@ -38,7 +38,7 @@ const deldata = (id) => {
 
 const update = (e) =>{
   e.preventDefault();
-  axios.put(`http://localhost:4001/Users/put/${editId}`, 
+  axios.put(`https://todoprojectback.onrender.com/Users/put/${editId}`, 
     {title,description}
   )
   .then((res) => {
